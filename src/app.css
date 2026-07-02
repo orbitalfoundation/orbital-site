@@ -1,0 +1,174 @@
+/* orbital jam — brand tokens carried over from social/jam.
+   Coral accent only; no hairlines, no radius — separation by space, not lines. */
+
+:root {
+  --color-bg: #ffffff;
+  --color-fg: #111111;
+  --color-dim: #777777;
+  --color-soft: #f4f4f2;
+  --color-accent: #ff5a36;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #111111;
+    --color-fg: #f2f2f0;
+    --color-dim: #999999;
+    --color-soft: #1d1d1d;
+    --color-accent: #ff7657;
+  }
+}
+
+* { box-sizing: border-box; margin: 0; }
+
+body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h1 { font-size: 2.4rem; font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; }
+h3 { font-size: 1rem; font-weight: 700; }
+
+button, input, select {
+  font: inherit;
+  color: inherit;
+  border: none;
+  background: var(--color-soft);
+}
+button { cursor: pointer; }
+
+/* --- floating chrome: tiny chips, content is the focus --- */
+
+.chip {
+  position: fixed;
+  top: 0.75rem;
+  z-index: 20;
+  padding: 0.35rem 0.6rem;
+  background: color-mix(in srgb, var(--color-bg) 72%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.chip.logo {
+  left: 0.75rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.chip.logo:hover { color: var(--color-accent); }
+.chip.who { right: 0.75rem; }
+.chip .plain { background: none; padding: 0.1rem 0.2rem; }
+.chip .plain:hover { color: var(--color-accent); }
+.chip .dim { color: var(--color-dim); }
+
+/* --- main view: full-bleed takeover, clears the floating chrome --- */
+
+main {
+  min-height: 100vh;
+  padding: 4.5rem 1.25rem 4rem;
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.crumbs { color: var(--color-dim); margin-bottom: 0.9rem; }
+.crumbs button { background: none; padding: 0; color: var(--color-dim); }
+.crumbs button:hover { color: var(--color-accent); }
+.crumbs .sep { padding: 0 0.3rem; }
+
+.head { margin-bottom: 1.5rem; }
+.head .desc { color: var(--color-dim); max-width: 46rem; }
+.head .meta { color: var(--color-dim); font-size: 0.9rem; margin-top: 0.25rem; }
+
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.1rem 0.45rem;
+  background: var(--color-soft);
+  color: var(--color-dim);
+  vertical-align: middle;
+  margin-left: 0.5rem;
+}
+.badge.hot { background: var(--color-accent); color: #fff; }
+
+/* --- cards: discovery grid --- */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: var(--color-soft);
+  color: var(--color-fg);
+  text-align: left;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+.card .pic { height: 7.5rem; object-fit: cover; width: 100%; }
+.card .inner { padding: 1.1rem 1.25rem 1.25rem; display: flex; flex-direction: column; gap: 0.3rem; flex: 1; }
+.card:hover h2 { color: var(--color-accent); }
+.card .kind { font-size: 0.9rem; color: var(--color-dim); }
+.card .desc { color: var(--color-dim); font-size: 0.95rem; }
+.card a { color: var(--color-accent); text-decoration: none; font-size: 0.9rem; word-break: break-all; }
+
+.empty { color: var(--color-dim); padding: 2rem 0; }
+
+/* --- action row --- */
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+}
+.actions button, .actions select {
+  padding: 0.4rem 0.75rem;
+  color: var(--color-dim);
+}
+.actions button:hover { color: var(--color-accent); }
+.actions .primary { color: var(--color-fg); font-weight: 700; }
+
+.error { color: var(--color-accent); margin-bottom: 1rem; }
+
+/* --- chat view --- */
+
+.chathead h2 { margin-bottom: 0.25rem; }
+.chathead .objects { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.chathead .obj { background: var(--color-soft); padding: 0.15rem 0.5rem; color: var(--color-dim); font-size: 0.85rem; }
+.chathead .obj:hover { color: var(--color-accent); }
+
+.chatwrap { display: flex; flex-direction: column; height: calc(100vh - 13rem); }
+.messages { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 0.5rem; padding-bottom: 0.5rem; }
+.notice { color: var(--color-dim); padding: 1rem 0; }
+.msg { display: flex; flex-direction: column; align-items: flex-start; }
+.msg.mine { align-items: flex-end; }
+.msg .who { font-size: 0.75rem; color: var(--color-dim); padding: 0 0.2rem; }
+.msg.mine .bubble { background: var(--color-accent); color: #fff; }
+.bubble {
+  background: var(--color-soft);
+  padding: 0.6rem 0.9rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-width: 40rem;
+}
+.composer {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.75rem 0 calc(0.75rem + env(safe-area-inset-bottom));
+}
+.composer input { flex: 1; padding: 0.7rem 0.9rem; }
+.composer button { padding: 0.7rem 1rem; }
+.composer :disabled { opacity: 0.5; cursor: default; }
+
+@media (max-width: 640px) {
+  main { padding: 4rem 0.9rem 3rem; }
+  h1 { font-size: 1.8rem; }
+}
