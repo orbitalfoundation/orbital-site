@@ -3,9 +3,11 @@
   import Folder from './lib/Folder.svelte';
   import Chat from './lib/Chat.svelte';
   import { route } from './lib/router.svelte.js';
-  import { session } from './lib/session.svelte.js';
+  import { session, initSession } from './lib/session.svelte.js';
   import { query, onChanged } from './lib/bus.js';
   import { viewOf } from './lib/views.js';
+
+  initSession(); // restore local identity, or complete/resume a web3auth session
 
   let entity = $state(null);
   let kids = $state([]);
