@@ -62,6 +62,8 @@ button { cursor: pointer; }
 }
 .chip.logo:hover { color: var(--color-accent); }
 .chip.who { right: 0.75rem; }
+.chip.lens { left: 50%; transform: translateX(-50%); color: var(--color-dim); }
+.chip.lens:hover { color: var(--color-accent); }
 .chip .plain { background: none; padding: 0.1rem 0.2rem; }
 .chip .plain:hover { color: var(--color-accent); }
 .chip .dim { color: var(--color-dim); }
