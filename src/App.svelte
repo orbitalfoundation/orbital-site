@@ -2,6 +2,7 @@
   import Header from './lib/Header.svelte';
   import Folder from './lib/Folder.svelte';
   import Chat from './lib/Chat.svelte';
+  import Profile from './lib/Profile.svelte';
   import { route, setView } from './lib/router.svelte.js';
   import { session, initSession } from './lib/session.svelte.js';
   import { query, onChanged } from './lib/bus.js';
@@ -29,7 +30,13 @@
 
   const reload = () => refresh(route.path, session.identity);
 
+  // /profile and /profile/<pubkey> are hard routes, resolved BEFORE the
+  // wildcard slug-to-entity routing (the names are also reserved as seeds, so
+  // no entity can legitimately shadow them)
+  const profileMatch = $derived(route.path.match(/^\/profile(?:\/([A-Za-z0-9]+))?\/?$/));
+
   $effect(() => {
+    if (route.path.startsWith('/profile')) return; // hard route — no entity fetch
     refresh(route.path, session.identity);
   });
 
@@ -54,15 +61,21 @@
 
 <Header />
 
-<button class="chip lens" title="look at this area through a different lens (changes nothing for anyone else)" onclick={flipLens}>
-  {view === 'chat' ? '▸ folder' : '◉ chat'}
-</button>
+{#if !profileMatch}
+  <button class="chip lens" title="look at this area through a different lens (changes nothing for anyone else)" onclick={flipLens}>
+    {view === 'chat' ? '▸ folder' : '◉ chat'}
+  </button>
+{/if}
 
 <main>
-  {#if error}<p class="error">{error}</p>{/if}
-  {#if view === 'chat'}
-    <Chat slug={route.path} {entity} {kids} onrefresh={reload} />
+  {#if profileMatch}
+    <Profile pubkey={profileMatch[1] ?? null} />
   {:else}
-    <Folder slug={route.path} {entity} {kids} onrefresh={reload} />
+    {#if error}<p class="error">{error}</p>{/if}
+    {#if view === 'chat'}
+      <Chat slug={route.path} {entity} {kids} onrefresh={reload} />
+    {:else}
+      <Folder slug={route.path} {entity} {kids} onrefresh={reload} />
+    {/if}
   {/if}
 </main>

@@ -100,7 +100,10 @@
     {#if !messages.length && !status}<div class="notice">no messages yet — say something.</div>{/if}
     {#each messages as m (m.seq)}
       <div class="msg" class:mine={mine(m)}>
-        <span class="who">{who(m)} · {at(m.at)}</span>
+        <span class="who">
+          {#if m.author}<button class="plain" title="their profile" onclick={() => navigate('/profile/' + m.author)}>{who(m)}</button>{:else}{who(m)}{/if}
+          · {at(m.at)}
+        </span>
         <div class="bubble">{m.body}</div>
       </div>
     {/each}

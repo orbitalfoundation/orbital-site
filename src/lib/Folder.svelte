@@ -135,7 +135,7 @@
 {:else}
   <p class="empty">
     {#if isHome}
-      nothing here yet — hit <strong>join</strong> (top right) to claim your folder.
+      nothing here yet — hit <strong>join</strong> (top right), then claim a folder from your profile.
     {:else}
       empty. {#if session.identity}add a folder, note or link above.{/if}
     {/if}
