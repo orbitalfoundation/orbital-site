@@ -1,0 +1,23 @@
+{
+  "entities": [
+    {
+      "slug": "/welcome",
+      "policy": "protected",
+      "components": {
+        "about": { "label": "Welcome", "description": "How this place works: hit join (top right) to mint an identity in your browser and claim a folder. Everything you make is signed by your key. Share your public key (the ⧉ chip) to be invited into other people's projects." }
+      }
+    },
+    {
+      "slug": "/welcome/lounge",
+      "hydrated": false,
+      "policy": "public",
+      "components": { "about": { "label": "The Lounge", "description": "a public chat space", "view": "chat" } }
+    },
+    {
+      "slug": "/welcome/example",
+      "hydrated": false,
+      "policy": "protected",
+      "components": { "about": { "label": "An example project", "description": "what a shared project folder looks like — notes, links, and eventually chat over all of it" } }
+    }
+  ]
+}

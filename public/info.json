@@ -1,0 +1,36 @@
+{
+  "entities": [
+    {
+      "slug": "/",
+      "policy": "public",
+      "components": {
+        "about": { "label": "orbital jam", "description": "a shared filespace — claim a folder, invite friends, jam on projects together." }
+      }
+    },
+    { "slug": "/profile", "policy": "private", "components": { "about": { "label": "reserved" } } },
+    { "slug": "/home", "policy": "private", "components": { "about": { "label": "reserved" } } },
+    { "slug": "/admin", "policy": "private", "components": { "about": { "label": "reserved" } } },
+    { "slug": "/api", "policy": "private", "components": { "about": { "label": "reserved" } } },
+    { "slug": "/settings", "policy": "private", "components": { "about": { "label": "reserved" } } },
+    { "slug": "/help", "policy": "private", "components": { "about": { "label": "reserved" } } },
+    { "slug": "/about", "policy": "private", "components": { "about": { "label": "reserved" } } },
+    { "slug": "/docs", "policy": "private", "components": { "about": { "label": "reserved" } } },
+    { "slug": "/code-of-conduct", "policy": "private", "components": { "about": { "label": "reserved" } } },
+    { "slug": "/terms", "policy": "private", "components": { "about": { "label": "reserved" } } },
+    { "slug": "/privacy", "policy": "private", "components": { "about": { "label": "reserved" } } },
+    { "slug": "/support", "policy": "private", "components": { "about": { "label": "reserved" } } },
+    { "slug": "/search", "policy": "private", "components": { "about": { "label": "reserved" } } },
+    { "slug": "/login", "policy": "private", "components": { "about": { "label": "reserved" } } },
+    { "slug": "/signup", "policy": "private", "components": { "about": { "label": "reserved" } } },
+    { "slug": "/system", "policy": "private", "components": { "about": { "label": "reserved" } } },
+    { "slug": "/static", "policy": "private", "components": { "about": { "label": "reserved" } } },
+    { "slug": "/assets", "policy": "private", "components": { "about": { "label": "reserved" } } },
+    { "slug": "/news", "policy": "private", "components": { "about": { "label": "reserved" } } },
+    { "slug": "/blog", "policy": "private", "components": { "about": { "label": "reserved" } } },
+    { "slug": "/mail", "policy": "private", "components": { "about": { "label": "reserved" } } },
+    { "slug": "/orbital", "policy": "private", "components": { "about": { "label": "reserved" } } },
+    { "slug": "/jam", "policy": "private", "components": { "about": { "label": "reserved" } } },
+    { "slug": "/root", "policy": "private", "components": { "about": { "label": "reserved" } } }
+  ],
+  "children": ["welcome"]
+}

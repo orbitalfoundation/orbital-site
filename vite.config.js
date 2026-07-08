@@ -14,6 +14,7 @@ logger.warn = (msg, opts) => {
 
 export default defineConfig({
   customLogger: logger,
+  publicDir: false, // ./public is the filespace SEED TREE, not vite static assets
   plugins: [
     svelte(),
     nodePolyfills({

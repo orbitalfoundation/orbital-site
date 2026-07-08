@@ -1,28 +1,30 @@
 {
-  "name": "@orbitalfoundation/jam",
-  "version": "0.1.0",
-  "description": "A multiuser project-jamming web interface over an orbital filespace. Svelte 5, slash-routed, data-forward: folders are cards, views are chosen by the data.",
+  "name": "@orbitalfoundation/site",
+  "version": "0.2.0",
+  "description": "The orbital site: the client-side web experience (Svelte 5, slash-routed, data-forward) together with the instance arrangement — config, namespace seeds, and deploy scripts. Formerly orbital-jam.",
   "type": "module",
   "engines": {
     "node": ">=20"
   },
   "scripts": {
+    "start": "node --preserve-symlinks ../orbital-server/bin/orbital-server.js",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "node --preserve-symlinks --test"
+    "test": "node --preserve-symlinks --test",
+    "test:all": "npm test --prefix ../orbital-filespace && npm test --prefix ../orbital-streams && npm test --prefix ../orbital-store && npm test --prefix ../orbital-server && npm test --prefix ../orbital-headless && npm test"
   },
   "keywords": [
     "orbital",
     "filespace",
-    "jam",
+    "site",
     "collaboration",
     "svelte"
   ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/orbitalfoundation/orbital-jam.git"
+    "url": "git+https://github.com/orbitalfoundation/orbital-site.git"
   },
   "dependencies": {
     "@noble/curves": "^1.6.0",

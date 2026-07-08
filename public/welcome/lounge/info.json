@@ -1,0 +1,9 @@
+{
+  "entities": [
+    {
+      "slug": "/welcome/lounge",
+      "policy": "public",
+      "components": { "about": { "label": "The Lounge", "description": "a public chat space", "view": "chat" } }
+    }
+  ]
+}

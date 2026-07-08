@@ -1,0 +1,17 @@
+{
+  "entities": [
+    {
+      "slug": "/welcome/example",
+      "policy": "protected",
+      "components": { "about": { "label": "An example project", "description": "a project is just a folder people are invited into" } }
+    },
+    {
+      "slug": "/welcome/example/goals",
+      "components": { "about": { "label": "Goals", "description": "collect what we know, argue about it kindly, ship something small" } }
+    },
+    {
+      "slug": "/welcome/example/reading",
+      "components": { "about": { "label": "Reading" }, "link": { "href": "https://orbital.foundation" } }
+    }
+  ]
+}
